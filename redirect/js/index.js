@@ -15,10 +15,10 @@ angular.module('myApp',['ngMaterial'])
         "Accept": "application/vnd.twitchtv.v"+$scope.api_version+"+json"
       }
     }).then(function(response){
-      $scope.api_response_body = JSON.stringify(JSON.parse(response.body), null, 2);
+      $scope.api_response_body = JSON.stringify(response.data, null, 2);
       $scope.api_response_status = 200;
     }, function(response){
-      $scope.api_response_body = response.body;
+      $scope.api_response_body = response.data;
       $scope.api_response_status = response.status;
     });
   }
