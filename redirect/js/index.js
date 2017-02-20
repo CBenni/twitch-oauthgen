@@ -8,7 +8,7 @@ angular.module('myApp',['ngMaterial'])
   $scope.makeRequest = function() {
     $http({
       method: $scope.method,
-      url: $scope.url,
+      url: "https://jsonp.afeld.me/?url="+$scope.url,
       headers: {
         "Authentication": "OAuth "+$scope.token,
         "Client-ID": "m4fyzznv5j844d8q3plttncoxm2px6",
