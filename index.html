@@ -6,14 +6,31 @@
   
   
   <link rel='stylesheet prefetch' href='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css'>
-
-  
+  <style>
+  .md-errors-spacer {
+    display: none;
+  }
+  </style>
   
 </head>
 
-<body>
-  <body layout="row" ng-app="myApp" ng-cloak>
-  
+<body layout="column" ng-app="myApp" ng-controller="c" ng-cloak layout-padding>
+  <h1>Twitch OAuth token generator</h1>
+  <md-input-container>
+    <label>Client ID</label>
+    <input ng-model="client_id">
+  </md-input-container>
+  <md-input-container>
+    <label>Redirect URI</label>
+    <input ng-model="redirect_uri">
+  </md-input-container>
+  <div>
+    <h4>Scopes</h4>
+    <div layout="row" layout-wrap="wrap">
+      <md-checkbox ng-repeat="scope in scopes" flex="none" ng-model="selectedscopes[scope]">{{scope}}</md-checkbox>
+    </div>
+  </div>
+  <a ng-href="{{getAuthUrl()}}">{{getAuthUrl()}}</a>
 </body>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.js'></script>
